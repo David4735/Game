@@ -1,5 +1,15 @@
 // js/gameData.js
 // Базовые параметры баланса
+export const player = {
+    race: "human",
+    health: 100,
+    attack: 10,
+    defense: 5,
+    gold: 100,
+    inventory: [],
+    equipment: {},
+    level: 1
+};
 const BALANCE = {
     MISS_CHANCE: 0.15,          // 15% шанс промаха
     PRICE_INFLATION: 1.07,      // 7% рост цен
