@@ -1,0 +1,276 @@
+/* css/styles.css */
+/* Основные стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+/* Создание персонажа */
+.character-creation {
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.selection-group {
+    margin: 15px 0;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background: #444;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+/* Вкладки */
+.tab-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 12px;
+    background: #3a3a3a;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 6px;
+}
+
+.tab-button.active {
+    background: #f0a830;
+    color: #1a1a1a;
+}
+
+/* Боевая система */
+.battle-log {
+    height: 200px;
+    overflow-y: auto;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.combat-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#miss-indicator {
+    color: #ff4444;
+    font-weight: bold;
+    text-align: center;
+    animation: missBlink 0.5s 3;
+}
+
+@keyframes missBlink {
+    50% { opacity: 0; }
+}
+
+/* Магазин */
+.shop-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.shop-item {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.price-inflation-info {
+    color: #ffd700;
+    padding: 10px;
+    background: #2a2a2a;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.shop-item.unavailable {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.price-change {
+    animation: priceBounce 0.5s;
+    color: #ff4444;
+}
+
+@keyframes priceBounce {
+    50% { transform: scale(1.2); }
+}
+/* Крафтинг */
+.crafting-materials {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#materials-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.recipe {
+    background: #3a3a3a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Характеристики */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+    background: #2a2a2a;
+    border-radius: 6px;
+}
+
+.stat-value {
+    font-size: 1.4em;
+    color: #f0a830;
+    margin-top: 8px;
+}
+
+/* Индикаторы здоровья */
+.health-bar {
+    height: 20px;
+    background: #444;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.health-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #30a030, #60d060);
+    transition: width 0.3s ease;
+}
+
+/* Кнопки */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+button:disabled {
+    background: #555 !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#attack-btn {
+    background: #d03030;
+    color: white;
+}
+
+#attack-btn:hover {
+    background: #ff4040;
+}
+
+#special-btn {
+    background: #f0a830;
+    color: #1a1a1a;
+}
+
+/* Анимация босса */
+.boss-fight {
+    animation: bossGlow 2s infinite;
+    border: 2px solid #ff3030;
+}
+
+@keyframes bossGlow {
+    0% { box-shadow: 0 0 10px #ff3030; }
+    50% { box-shadow: 0 0 25px #ff3030; }
+    100% { box-shadow: 0 0 10px #ff3030; }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+    .tab-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .shop-items {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* Дополнительные стили для UI */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#inventory-panel {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.item {
+    background: #444;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+.damage-animation {
+    color: #ff4444;
+    font-weight: bold;
+    animation: floatUp 1s ease-out;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-30px); opacity: 0; }
+}

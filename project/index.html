@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Браузерная Игра</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>RPG Мини-Игра</h1>
+        
+        <!-- Экран создания персонажа -->
+        <div id="character-creation" class="character-creation">
+            <!-- Существующая форма создания персонажа -->
+            <h2>Создание персонажа</h2>
+            <div class="selection-group">
+                <label for="race">Выберите расу:</label>
+                <select id="race">
+                    <option value="human">Человек</option>
+                    <option value="elf">Эльф</option>
+                    <option value="orc">Орк</option>
+                    <option value="dwarf">Дварф</option>
+                </select>
+            </div>
+            <button id="create-character">Создать персонажа</button>
+        </div>
+
+        <!-- Основной игровой экран -->
+        <div id="game-screen" class="hidden">
+            <!-- Кнопки переключения режимов -->
+            <div class="tab-buttons">
+                <button id="battle-tab" class="tab-button active">Битва</button>
+                <button id="crafting-tab" class="tab-button">Крафтинг</button>
+                <button id="shop-tab" class="tab-button">Магазин</button>
+                <button id="stats-tab" class="tab-button">Характеристики</button>
+            </div>
+
+            <!-- Контент для разных режимов -->
+            <div id="battle-content">
+                <!-- Существующая боевая система -->
+                <div class="battle-log" id="battle-log"></div>
+                <div class="combat-controls">
+                    <button id="attack-btn">Атаковать</button>
+                    <button id="special-btn">Особая атака</button>
+                    <div id="miss-indicator" class="hidden">Промах!</div>
+                </div>
+            </div>
+
+            <!-- Новый раздел для крафтинга -->
+            <div id="crafting-content" class="hidden">
+                <h2>Крафтинг</h2>
+                <div class="crafting-materials">
+                    <h3>Материалы:</h3>
+                    <div id="materials-list"></div>
+                </div>
+                <div class="crafting-recipes">
+                    <h3>Доступные рецепты:</h3>
+                    <div id="recipes-container"></div>
+                </div>
+            </div>
+
+            <!-- Магазин -->
+            <div id="shop-content" class="hidden">
+                <h2>Магазин</h2>
+                <div class="price-inflation-info">
+                    Цены растут на 5-7% после каждой покупки!
+                </div>
+                <div class="shop-items" id="shop-items-container"></div>
+            </div>
+
+            <!-- Характеристики -->
+            <div id="stats-content" class="hidden">
+                <div class="stats">
+                    <!-- Добавлен индикатор промахов -->
+                    <div class="stat">
+                        <div>Шанс промаха</div>
+                        <div class="stat-value" id="miss-chance">15%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов -->
+    <script src="js/gameData.js"></script>
+    <script src="js/gameLogic.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/crafting.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>
